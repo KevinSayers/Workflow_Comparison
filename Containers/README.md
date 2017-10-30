@@ -14,12 +14,21 @@ Nextflow allows you to specify either on container to be used for the entire wor
 process demo{
   container 'CONTAINER'
 }
+```
 
 ## Singularity and Docker interoperability
 
 
 # CWL 
 CWL supports Docker with work being done to add in Singularity support.
+
+## Specifying a container
+Docker containers can be specified as a hint inside of a `CommandLineTool` file. 
+```
+hints:
+  DockerRequirement:
+    dockerPull: CONTAINER
+```
 
 # Snakemake 
 ## Singularity and Docker interoperability
