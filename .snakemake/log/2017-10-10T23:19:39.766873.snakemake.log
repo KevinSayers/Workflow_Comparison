@@ -1,0 +1,3 @@
+MissingInputException in line 8 of /home/kevin/rnatoy/Snakefile:
+Missing input files for rule all:
+genome.index.2.bt2

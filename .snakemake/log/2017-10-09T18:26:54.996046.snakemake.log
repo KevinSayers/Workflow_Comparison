@@ -1,0 +1,25 @@
+Relative file path './genome.index*' starts with './'. This is redundant and strongly discouraged. It can also lead to inconsistent results of the file-matching approach used by Snakemake. You can simply omit the './' for relative file paths.
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	buildIndex
+	1
+
+rule buildIndex:
+    input: data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fa
+    output: ./genome.index*
+    jobid: 0
+
+Waiting at most 5 seconds for missing files.
+Error in rule buildIndex:
+    jobid: 0
+    output: ./genome.index*
+
+MissingOutputException in line 3 of /home/kevin/rnatoy/Snakefile:
+Missing files after 5 seconds:
+./genome.index*
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-10-09T18:26:54.996046.snakemake.log

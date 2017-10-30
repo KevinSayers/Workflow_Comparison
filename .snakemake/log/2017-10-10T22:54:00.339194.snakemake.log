@@ -1,0 +1,2 @@
+SyntaxError in line 3 of /home/kevin/rnatoy/Snakefile:
+Unexpected keyword genome in rule definition (Snakefile, line 3)

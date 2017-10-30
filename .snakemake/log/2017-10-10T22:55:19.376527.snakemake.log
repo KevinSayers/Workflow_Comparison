@@ -1,0 +1,20 @@
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	mapping
+	1
+
+Job 0: mapping
+
+Error in rule mapping:
+    jobid: 0
+
+RuleException:
+CalledProcessError in line 31 of /home/kevin/rnatoy/Snakefile:
+Command 'tophat2 -p 4 --GTF data/ggal/ggal_1_48850000_49020000.bed.gff genome.index data/ggal/ggal_gut_1.fq data/ggal/ggal_gut_2.fq' returned non-zero exit status 1
+  File "/home/kevin/rnatoy/Snakefile", line 31, in __rule_mapping
+  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-10-10T22:55:19.376527.snakemake.log

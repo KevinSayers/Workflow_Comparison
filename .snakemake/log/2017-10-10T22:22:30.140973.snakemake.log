@@ -1,0 +1,4 @@
+ValueError in line 2 of /home/kevin/rnatoy/Snakefile:
+Type names and field names must be valid identifiers: '1'
+  File "/home/kevin/rnatoy/Snakefile", line 2, in <module>
+  File "/usr/lib/python3.5/collections/__init__.py", line 400, in namedtuple

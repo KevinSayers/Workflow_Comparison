@@ -1,0 +1,24 @@
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	buildIndex
+	1
+
+rule buildIndex:
+    input: data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fa
+    output: genome.index*
+    jobid: 0
+
+Error in rule buildIndex:
+    jobid: 0
+    output: genome.index*
+
+RuleException:
+CalledProcessError in line 12 of /home/kevin/rnatoy/Snakefile:
+Command 'bowtie2-build --threads $2 $data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fa genome.index' returned non-zero exit status 1
+  File "/home/kevin/rnatoy/Snakefile", line 12, in __rule_buildIndex
+  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-10-09T18:08:51.626564.snakemake.log

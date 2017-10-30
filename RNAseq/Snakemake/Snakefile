@@ -1,0 +1,37 @@
+genome = "../data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fa"
+reads1 = "../data/ggal/ggal_gut_1.fq"
+reads2 = "../data/ggal/ggal_gut_2.fq"
+annot = "../data/ggal/ggal_1_48850000_49020000.bed.gff"
+outdir = 'results'
+cpus = 4
+
+rule all:
+	input:
+		"tophat_out/accepted_hits.bam"
+
+
+
+
+
+rule buildIndex:
+	message: 'indexing'
+	input:
+		genome
+	output:
+		"genome.index.1.bt2"
+
+	shell:
+		'bowtie2-build {genome} genome.index'
+
+rule mapping:
+	message: 'mapping'
+	input:
+		annot,
+		reads1,
+		reads2,
+		"genome.index.1.bt2"
+
+	output:
+		"tophat_out/accepted_hits.bam"
+	shell:
+		'tophat2 -p {cpus} --GTF {annot} genome.index {reads1} {reads2}'

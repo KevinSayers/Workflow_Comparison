@@ -1,0 +1,3 @@
+MissingInputException in line 8 of /home/kevin/rnatoy/Snakefile:
+Missing input files for rule all:
+data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fagenome.index*
