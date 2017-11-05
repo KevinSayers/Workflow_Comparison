@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 9 of /home/kevin/Workflow_Comparison/Modularization/Snakemake/Snakefile:
+Missing input files for rule sortbam:
+toy.bam

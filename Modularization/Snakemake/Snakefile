@@ -1,0 +1,16 @@
+SAMFILES = ["toy"]
+
+rule all:
+	input:
+		expand("out/{sample}.bai",sample=SAMFILES)
+
+include: "SAM_to_BAM"
+
+rule indexbam:
+	input:	
+		"out/{sample}.bam"
+	output:
+		"out/{sample}.bai"
+
+	wrapper:
+		"0.0.8/bio/samtools_index"

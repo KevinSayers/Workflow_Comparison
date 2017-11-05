@@ -1,0 +1,8 @@
+rule samtobam:
+	input:
+		"../../data/{sample}.sam"
+
+	output:
+		"out/{sample}.bam"
+	shell:
+		"samtools view -Sb  {input} > {output}"

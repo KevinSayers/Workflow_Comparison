@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	indexbam
+	1	samtobam
+	3
+
+rule samtobam:
+    input: ../../data/toy.sam
+    output: out/toy.bam
+    jobid: 2
+    wildcards: sample=toy
+
+Finished job 2.
+1 of 3 steps (33%) done
+
+rule indexbam:
+    input: out/toy.bam
+    output: out/toy.bai
+    jobid: 1
+    wildcards: sample=toy
+
+Error in rule indexbam:
+    jobid: 1
+    output: out/toy.bai
+
+RuleException:
+WorkflowError in line 16 of /home/kevin/Workflow_Comparison/Modularization/Snakemake/Snakefile:
+HTTPError: HTTP Error 404: Not Found
+  File "/home/kevin/Workflow_Comparison/Modularization/Snakemake/Snakefile", line 16, in __rule_indexbam
+  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-11-05T012722.618034.snakemake.log

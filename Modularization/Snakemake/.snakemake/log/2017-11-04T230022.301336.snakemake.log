@@ -1,0 +1,18 @@
+Building DAG of jobs...
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	samtobam
+	1
+
+rule samtobam:
+    input: ../../data/toy.sam
+    output: toy.sorted.bam
+    jobid: 0
+    wildcards: samfile=toy.sorted
+
+Waiting at most 5 seconds for missing files.
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2017-11-04T230022.301336.snakemake.log

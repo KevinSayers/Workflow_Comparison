@@ -1,0 +1,6 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules samtobam and sortbam are ambiguous for the file toy.sorted.bam.
+Expected input files:
+	samtobam: ../../data/toy.sam
+	sortbam: toy.bam
