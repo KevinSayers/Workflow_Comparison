@@ -1,0 +1,4 @@
+samfile:
+  class: File
+  path: ../../data/toy.sam
+bamfile: "toy.bam"
