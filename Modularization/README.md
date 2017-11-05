@@ -35,7 +35,59 @@ rule samtobam:
 One thing that is really nice about Snakemake is that includes do not have to specify the inputs or outputs due to the connections of the steps being based on the DAG. 
 
 # CWL
+CWL is modular by nature. It is possible to write a single CWL workflow file with each step included, but it messy. Writing a workflow file that points to a different CWL file for each step is seemingly more common in the community. The workflow file acts as a mapping of inputs and outputs from each of the steps. 
 
+main workflow file:
+```
+cwlVersion: v1.0
+class: Workflow
+
+    
+inputs:
+  samfile: File
+  bamfile: string
+
+outputs:
+  bams:
+    type: File
+    outputSource: samtobam/bamout
+
+steps:
+  samtobam:
+    run: samtobam.cwl
+    in:
+      sam: samfile
+      bam: bamfile
+    out: [bamout]
+```
+
+step:
+```
+cwlVersion: v1.0
+class: CommandLineTool
+baseCommand: samtools
+
+arguments: ["view","-Sb"]
+inputs:
+  sam:
+    type: File
+    inputBinding:
+      position: 1
+  bam:
+    type: string
+    inputBinding:
+      position: 2
+      prefix: "-o"
+outputs: 
+  bamout:
+    type: File
+    outputBinding:
+      glob: "*.bam"
+```
+
+Above you can see the main workflow has an `in` section for the step `samtobam` with mappings from inputs in the workflow file to those in the step. For example `sam` from the workflow file maps to `samfile` in the step file. 
+
+The mappings combined with CWL very verbose nature though does lead to significantly lenghtier workflows. This is especially true when compared to Snakemake's ability to infer the inputs and outputs from the DAG. 
 
 # Nextflow
 Nextflow currently has limited modularization abilities. It is possible to place the script block into a separate bash file for reuse. This allows independent testing of the command as it can be executed on the commandline. This implementation is not quite as polished as those offered by Snakemake and CWL. 
