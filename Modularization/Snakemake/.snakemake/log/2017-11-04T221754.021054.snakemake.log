@@ -1,5 +1,0 @@
-Building DAG of jobs...
-InputFunctionException in line 7 of /home/kevin/Workflow_Comparison/Modularization/Snakemake/Snakefile:
-KeyError: 'samfiles'
-Wildcards:
-samfile=toy
