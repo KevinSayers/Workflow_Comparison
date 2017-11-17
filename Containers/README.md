@@ -78,5 +78,4 @@ of an individual Docker container for each task which is limiting for groups usi
 
 #Outstanding questions
 * CWL CommandLineTool vs Workflow Docker
-* Snakemake docker individual containers?
 * compare the use of private repositories 
